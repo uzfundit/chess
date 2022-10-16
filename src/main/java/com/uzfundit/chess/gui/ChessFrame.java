@@ -9,20 +9,35 @@ public class ChessFrame extends JFrame implements WindowListener {
 
     private final Dimension dimension;
     private final MenuBar menuBar;
+    private final BoardPanel boardPanel;
 
-    public ChessFrame(Dimension dimension, MenuBar menuBar) {
+    public ChessFrame(Dimension dimension, MenuBar menuBar, BoardPanel boardPanel) {
         this.dimension = dimension;
         this.menuBar = menuBar;
-        this.setJMenuBar(menuBar);
+        this.boardPanel = boardPanel;
     }
 
     public void display() {
+        setSelf();
+        setMenuBar();
+        setBoardPanel();
+        this.setVisible(true);
+    }
+
+    private void setSelf() {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setSize(dimension);
         this.addWindowListener(this);
+    }
+
+    private void setMenuBar() {
         this.setJMenuBar(menuBar);
         menuBar.populateMenuBar();
-        this.setVisible(true);
+    }
+
+    private void setBoardPanel() {
+        this.add(boardPanel, BorderLayout.CENTER);
+        boardPanel.display();
     }
 
 
