@@ -19,6 +19,10 @@ public class TilePanel extends JPanel {
         this.setPreferredSize(dimension);
         assignTileColor();
     }
+    public void displaySigns() {
+        this.setPreferredSize(dimension);
+
+    }
 
     private void assignTileColor() {
         boolean  isLightColor = BoardUtils.isLightColor(tileId);
