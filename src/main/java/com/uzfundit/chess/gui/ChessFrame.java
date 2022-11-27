@@ -10,12 +10,12 @@ public class ChessFrame extends JFrame implements WindowListener {
     private final Dimension dimension;
     private final MenuBar menuBar;
     private final BoardPanel boardPanel;
-    private final Top_AND_Bottom_Panel topPanel;
-    private final Top_AND_Bottom_Panel bottomPanel;
-    private final Left_AND_Right_Panel leftPanel;
-    private final Left_AND_Right_Panel rightPanel;
+    private final TopPanel topPanel;
+    private final BottomPanel bottomPanel;
+    private final LeftPanel leftPanel;
+    private final RightPanel rightPanel;
 
-    public ChessFrame(Dimension dimension, MenuBar menuBar, BoardPanel boardPanel, Top_AND_Bottom_Panel topPanel, Top_AND_Bottom_Panel bottomPanel, Left_AND_Right_Panel leftPanel, Left_AND_Right_Panel rightPanel) {
+    public ChessFrame(Dimension dimension, MenuBar menuBar, BoardPanel boardPanel, TopPanel topPanel, BottomPanel bottomPanel, LeftPanel leftPanel, RightPanel rightPanel) {
         this.dimension = dimension;
         this.menuBar = menuBar;
         this.boardPanel = boardPanel;
@@ -61,10 +61,12 @@ public class ChessFrame extends JFrame implements WindowListener {
         bottomPanel.display();
     }
     private void setLeftPanel() {
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
         this.add(leftPanel, BorderLayout.WEST);
         leftPanel.display();
     }
     private void setRightPanel() {
+        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         this.add(rightPanel, BorderLayout.EAST);
         rightPanel.display();
     }

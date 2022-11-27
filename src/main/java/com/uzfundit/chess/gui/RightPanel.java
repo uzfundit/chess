@@ -4,12 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class Top_AND_Bottom_Panel extends JPanel {
+public class RightPanel extends JPanel {
     private final Dimension dimension;
-    private final List<TilePanel> tiles;
+    private final java.util.List<TilePanel> tiles;
+    public static int count = 0;
 
-    public Top_AND_Bottom_Panel(Dimension dimension, List<TilePanel> tiles) {
-        super(new GridLayout(1,10));
+    public RightPanel(Dimension dimension, List<TilePanel> tiles) {
+        super(new GridLayout(8,1));
         this.dimension = dimension;
         this.tiles = tiles;
     }
@@ -19,7 +20,8 @@ public class Top_AND_Bottom_Panel extends JPanel {
 
         for(TilePanel tilePanel : tiles) {
             add(tilePanel);
-            tilePanel.displaySigns();
+            tilePanel.displayRightDigits();
+            count++;
         }
 
         this.validate();

@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class Left_AND_Right_Panel extends JPanel{
+public class LeftPanel extends JPanel{
     private final Dimension dimension;
     private final java.util.List<TilePanel> tiles;
+    public static int count = 0;
 
-    public Left_AND_Right_Panel(Dimension dimension, List<TilePanel> tiles) {
+    public LeftPanel(Dimension dimension, List<TilePanel> tiles) {
         super(new GridLayout(8,1));
         this.dimension = dimension;
         this.tiles = tiles;
@@ -19,7 +20,8 @@ public class Left_AND_Right_Panel extends JPanel{
 
         for(TilePanel tilePanel : tiles) {
             add(tilePanel);
-            tilePanel.displaySigns();
+            tilePanel.displayLeftDigits();
+            count++;
         }
 
         this.validate();
