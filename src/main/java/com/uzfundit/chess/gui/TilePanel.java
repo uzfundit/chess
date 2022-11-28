@@ -12,59 +12,70 @@ public class TilePanel extends JPanel {
     public TilePanel(int tileId, Dimension dimension) {
         this.tileId = tileId;
         this.dimension = dimension;
-
     }
 
     public void display() {
         this.setPreferredSize(dimension);
         assignTileColor();
     }
+
     public void displayTopLetters() {
         this.setPreferredSize(dimension);
-        String s = "";
+        String[] s = new String[8];
 
         switch (TopPanel.count) {
-            case 1: s = "A     "; break;
-            case 2: s = "B     "; break;
-            case 3: s = "  C   "; break;
-            case 4: s = "D"; break;
-            case 5: s = "E"; break;
-            case 6: s = "  F"; break;
-            case 7: s = "   G"; break;
-            case 8: s = "     H"; break;
+            case 1: s[0] = "A"; break;
+            case 2: s[1] = "B"; break;
+            case 3: s[2] = "C"; break;
+            case 4: s[3] = "D"; break;
+            case 5: s[4] = "E"; break;
+            case 6: s[5] = "F"; break;
+            case 7: s[6] = "G"; break;
+            case 8: s[7] = "H"; break;
+        }
+        JLabel label;
+        for(int i = 0; i < 8; i++) {
+            label = getjLabel(s, i);
+            label.setAlignmentX(CENTER_ALIGNMENT);
         }
 
-        JLabel label = new JLabel(s, JLabel.CENTER);
+
+        setColor(new Color(155, 103, 0));
+    }
+    public void displayBottomLetters() {
+        this.setPreferredSize(dimension);
+        String[] s = new String[8];
+
+        switch (BottomPanel.count) {
+            case 1: s[0] = "A"; break;
+            case 2: s[1] = "B"; break;
+            case 3: s[2] = "C"; break;
+            case 4: s[3] = "D"; break;
+            case 5: s[4] = "E"; break;
+            case 6: s[5] = "F"; break;
+            case 7: s[6] = "G"; break;
+            case 8: s[7] = "H"; break;
+        }
+        JLabel label;
+        for(int i = 0; i < 8; i++) {
+            label = getjLabel(s, i);
+            label.setAlignmentX(CENTER_ALIGNMENT);
+        }
+
+        setColor(new Color(155, 103, 0));
+    }
+
+    private JLabel getjLabel(String[] s, int i) {
+        JLabel label = new JLabel(s[i], JLabel.CENTER);
         Font fnt = new Font("Calibri",Font.BOLD,20);
         label.setFont(fnt);
         label.setForeground(Color.lightGray);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         this.add(BorderLayout.NORTH, label);
-        setColor(new Color(155, 103, 0));
+        return label;
     }
-    public void displayBottomLetters() {
-        this.setPreferredSize(dimension);
-        String s = "";
 
-        switch (BottomPanel.count) {
-            case 1: s = "A     "; break;
-            case 2: s = "B     "; break;
-            case 3: s = "  C   "; break;
-            case 4: s = "D"; break;
-            case 5: s = "E"; break;
-            case 6: s = "  F"; break;
-            case 7: s = "   G"; break;
-            case 8: s = "     H"; break;
-        }
-
-        JLabel label = new JLabel(s);
-        Font fnt = new Font("Calibri",Font.BOLD,20);
-        label.setFont(fnt);
-        label.setForeground(Color.lightGray);
-        this.add(BorderLayout.SOUTH, label);
-        setColor(new Color(155, 103, 0));
-    }
     public void displayLeftDigits() {
         this.setPreferredSize(dimension);
         String s1 = "";
@@ -79,14 +90,14 @@ public class TilePanel extends JPanel {
             case 6: s1 = "2"; break;
             case 7: s1 = "1"; break;
         }
-
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         JLabel label = new JLabel(s1);
         Font fnt = new Font("Calibri",Font.BOLD,20);
         label.setFont(fnt);
         label.setForeground(Color.lightGray);
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         this.add(BorderLayout.WEST, label);
+        label.setAlignmentY(CENTER_ALIGNMENT);
         setColor(new Color(155, 103, 0));
     }
 
@@ -104,12 +115,12 @@ public class TilePanel extends JPanel {
             case 6: s1 = "7"; break;
             case 7: s1 = "8"; break;
         }
-        JLabel label = new JLabel(s1);
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JLabel label = new JLabel(s1, JLabel.CENTER);
         Font fnt = new Font("Calibri",Font.BOLD,20);
         label.setFont(fnt);
         label.setForeground(Color.lightGray);
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         this.add(BorderLayout.EAST, label);
         setColor(new Color(155, 103, 0));
     }
