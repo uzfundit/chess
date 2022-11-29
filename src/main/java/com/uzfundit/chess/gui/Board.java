@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Board {
     private static final Dimension OUTER_FRAME_DIMENSION = new Dimension(900, 900);
-    private static final Dimension TOP_TILE_DIMENSION = new Dimension(500, 50);
-    private static final Dimension LEFT_TILE_DIMENSION = new Dimension(50, 400);
+    private static final Dimension TOP_TILE_DIMENSION = new Dimension(500, 30);
+    private static final Dimension LEFT_TILE_DIMENSION = new Dimension(30, 400);
     private static final Dimension BOARD_PANEL_DIMENSION = new Dimension(400, 400);
     private static final Dimension TILE_PANEL_DIMENSION = new Dimension(10, 10);
 
