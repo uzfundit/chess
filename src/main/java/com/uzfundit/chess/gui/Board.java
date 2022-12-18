@@ -12,7 +12,7 @@ public class Board {
     private static final Dimension TILE_PANEL_DIMENSION = new Dimension(10, 10);
 
     public static Board createBoard() {
-        MenuBar menuBar = new MenuBar("File");
+        MenuBar menuBar = new MenuBar("File", "Control");
         List<TilePanel> tiles = createTiles();
         List<TilePanel> topTiles = createTopTiles();
         List<TilePanel> bottomTiles = createBottomTiles();
@@ -39,6 +39,10 @@ public class Board {
     }
 
     private static List<TilePanel> createTopTiles() {
+        return getTilePanels();
+    }
+
+    private static List<TilePanel> getTilePanels() {
         List<TilePanel> tilePanels = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
             TilePanel tilePanel = new TilePanel(i, TILE_PANEL_DIMENSION);
@@ -48,15 +52,14 @@ public class Board {
     }
 
     private static List<TilePanel> createBottomTiles() {
-        List<TilePanel> tilePanels = new ArrayList<>(10);
-        for (int i = 0; i < 10; i++) {
-            TilePanel tilePanel = new TilePanel(i, TILE_PANEL_DIMENSION);
-            tilePanels.add(tilePanel);
-        }
-        return tilePanels;
+        return getTilePanels();
     }
 
     private static List<TilePanel> createLeftTiles() {
+        return getTilePanels2();
+    }
+
+    private static List<TilePanel> getTilePanels2() {
         List<TilePanel> tilePanels = new ArrayList<>(8);
         for (int i = 0; i < 8; i++) {
             TilePanel tilePanel = new TilePanel(i, TILE_PANEL_DIMENSION);
@@ -66,12 +69,7 @@ public class Board {
     }
 
     private static List<TilePanel> createRightTiles() {
-        List<TilePanel> tilePanels = new ArrayList<>(8);
-        for (int i = 0; i < 8; i++) {
-            TilePanel tilePanel = new TilePanel(i, TILE_PANEL_DIMENSION);
-            tilePanels.add(tilePanel);
-        }
-        return tilePanels;
+        return getTilePanels2();
     }
 
     private final ChessFrame chessFrame;
